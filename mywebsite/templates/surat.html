@@ -1,0 +1,523 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">K-means++ Clustering</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'surat' %}">Surat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cluster' %}">cluster</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">surat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td class href="#">al-fatihah</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Al-baqarah</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Ali'Imran</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>An-Nisa'</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Al-Ma'idah</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>An'a,</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Al-A'raf</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Al-Anfal</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>At-Taubah</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>Yunus</td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td>Hud</td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td>Yusuf</td>
+              </tr>
+              <tr>
+                <th scope="row">13</th>
+                <td>Ar-Ra'd</td>
+              </tr>
+              <tr>
+                <th scope="row">14</th>
+                <td>Ibrahim</td>
+              </tr>
+              <tr>
+                <th scope="row">15</th>
+                <td>Al-Hijr</td>
+              </tr>
+              <tr>
+                <th scope="row">16</th>
+                <td>An-Nahl</td>
+              </tr>
+              <tr>
+                <th scope="row">17</th>
+                <td>Al-Isra'</td>
+              </tr>
+              <tr>
+                <th scope="row">18</th>
+                <td>Al-kahf</td>
+              </tr>
+              <tr>
+                <th scope="row">19</th>
+                <td>Maryam</td>
+              </tr>
+              <tr>
+                <th scope="row">20</th>
+                <td>Ta Ha</td>
+              </tr>
+              <tr>
+                <th scope="row">21</th>
+                <td>Anbiya</td>
+              </tr>
+              <tr>
+                <th scope="row">22</th>
+                <td>Al-Hajj</td>
+              </tr>
+              <tr>
+                <th scope="row">23</th>
+                <td>Al-Mu'minum</td>
+              </tr>
+              <tr>
+                <th scope="row">24</th>
+                <td>An-Nur</td>
+              </tr>
+              <tr>
+                <th scope="row">25</th>
+                <td>Al-furqan</td>
+              </tr>
+              <tr>
+                <th scope="row">26</th>
+                <td>Asy-Syu'araa'</td>
+              </tr>
+              <tr>
+                <th scope="row">27</th>
+                <td>An-Naml</td>
+              </tr>
+              <tr>
+                <th scope="row">28</th>
+                <td>Al-Qashash</td>
+              </tr>
+              <tr>
+                <th scope="row">29</th>
+                <td>Al-Ankabut</td>
+              </tr>
+              <tr>
+                <th scope="row">30</th>
+                <td>Ar-Ruum</td>
+              </tr>
+              <tr>
+                <th scope="row">31</th>
+                <td>Luqman</td>
+              </tr>
+              <tr>
+                <th scope="row">32</th>
+                <td>As-Sajadah</td>
+              </tr>
+              <tr>
+                <th scope="row">33</th>
+                <td>Al-Ahzab</td>
+              </tr>
+              <tr>
+                <th scope="row">34</th>
+                <td>Saba'</td>
+              </tr>
+              <tr>
+                <th scope="row">35</th>
+                <td>Faathir</td>
+              </tr>
+              <tr>
+                <th scope="row">36</th>
+                <td>Yaa Siin</td>
+              </tr>
+              <tr>
+                <th scope="row">37</th>
+                <td>Ash-Shaffaat</td>
+              </tr>
+              <tr>
+                <th scope="row">38</th>
+                <td>Shaad</td>
+              </tr>
+              <tr>
+                <th scope="row">39</th>
+                <td>Az-Zumar</td>
+              </tr>
+              <tr>
+                <th scope="row">40</th>
+                <td>Al-Mu'min</td>
+              </tr>
+              <tr>
+                <th scope="row">41</th>
+                <td>Fush Shilat</td>
+              </tr>
+              <tr>
+                <th scope="row">42</th>
+                <td>Asy-Syuura</td>
+              </tr>
+              <tr>
+                <th scope="row">43</th>
+                <td>Az-Zukhruf</td>
+              </tr>
+              <tr>
+                <th scope="row">44</th>
+                <td>Ad-Dukhaan</td>
+              </tr>
+              <tr>
+                <th scope="row">45</th>
+                <td>Al-Jaatsiyah</td>
+              </tr>
+              <tr>
+                <th scope="row">46</th>
+                <td>Al-Ahqaaf</td>
+              </tr>
+              <tr>
+                <th scope="row">47</th>
+                <td>Muhammad</td>
+              </tr>
+              <tr>
+                <th scope="row">48</th>
+                <td>Al-Fath</td>
+              </tr>
+              <tr>
+                <th scope="row">49</th>
+                <td>Al-Hujurat</td>
+              </tr>
+              <tr>
+                <th scope="row">50</th>
+                <td>Qaaf</td>
+              </tr>
+              <tr>
+                <th scope="row">51</th>
+                <td>Adz-Dzaariyaat</td>
+              </tr>
+              <tr>
+                <th scope="row">52</th>
+                <td>Ath-Thuur</td>
+              </tr>
+              <tr>
+                <th scope="row">53</th>
+                <td>An-Najm</td>
+              </tr>
+              <tr>
+                <th scope="row">54</th>
+                <td>Al-Qamar</td>
+              </tr>
+              <tr>
+                <th scope="row">55</th>
+                <td>Ar-Rahmaan</td>
+              </tr>
+              <tr>
+                <th scope="row">56</th>
+                <td>Al-Waaqiah</td>
+              </tr>
+              <tr>
+                <th scope="row">57</th>
+                <td>Al-Hadiid</td>
+              </tr>
+              <tr>
+                <th scope="row">58</th>
+                <td>Al-Mujaadilah</td>
+              </tr>
+              <tr>
+                <th scope="row">59</th>
+                <td>Al-Hasyr</td>
+              </tr>
+              <tr>
+                <th scope="row">60</th>
+                <td>Al-Mumtahanah</td>
+              </tr>
+              <tr>
+                <th scope="row">61</th>
+                <td>Ash-Shaff</td>
+              </tr>
+              <tr>
+                <th scope="row">62</th>
+                <td>Al-Jumu'ah</td>
+              </tr>
+              <tr>
+                <th scope="row">63</th>
+                <td>Al-Munaafiquun</td>
+              </tr>
+              <tr>
+                <th scope="row">64</th>
+                <td>At-Taghaabun</td>
+              </tr>
+              <tr>
+                <th scope="row">65</th>
+                <td>Ath-Thalaaq</td>
+              </tr>
+              <tr>
+                <th scope="row">66</th>
+                <td>At-Tahrim</td>
+              </tr>
+              <tr>
+                <th scope="row">67</th>
+                <td>Al-Mulk</td>
+              </tr>
+              <tr>
+                <th scope="row">68</th>
+                <td>Al-Qalam</td>
+              </tr>
+              <tr>
+                <th scope="row">69</th>
+                <td>Al-Haaqqah</td>
+              </tr>
+              <tr>
+                <th scope="row">70</th>
+                <td>Al-Ma'aarij</td>
+              </tr>
+              <tr>
+                <th scope="row">71</th>
+                <td>Nuh</td>
+              </tr>
+              <tr>
+                <th scope="row">72</th>
+                <td>Al-Jin</td>
+              </tr>
+              <tr>
+                <th scope="row">73</th>
+                <td>Al-Muzzammil</td>
+              </tr>
+              <tr>
+                <th scope="row">74</th>
+                <td>Al-Muddatstsir</td>
+              </tr>
+              <tr>
+                <th scope="row">75</th>
+                <td>Al-Qiyaamah</td>
+              </tr>
+              <tr>
+                <th scope="row">76</th>
+                <td>Al-Insaan</td>
+              </tr>
+              <tr>
+                <th scope="row">77</th>
+                <td>Al-Mursalaat</td>
+              </tr>
+              <tr>
+                <th scope="row">78</th>
+                <td>An-Naba'</td>
+              </tr>
+              <tr>
+                <th scope="row">79</th>
+                <td>An-Naazi'aat</td>
+              </tr>
+              <tr>
+                <th scope="row">80</th>
+                <td>'Abasa</td>
+              </tr>
+              <tr>
+                <th scope="row">81</th>
+                <td>At-Takwir</td>
+              </tr>
+              <tr>
+                <th scope="row">82</th>
+                <td>Al-Infithar</td>
+              </tr>
+              <tr>
+                <th scope="row">83</th>
+                <td>Al-Muthaffifiin</td>
+              </tr>
+              <tr>
+                <th scope="row">84</th>
+                <td>Al-Insyiqaaq</td>
+              </tr>
+              <tr>
+                <th scope="row">85</th>
+                <td>Al-Buruuj</td>
+              </tr>
+              <tr>
+                <th scope="row">86</th>
+                <td>Ath-Thaariq</td>
+              </tr>
+              <tr>
+                <th scope="row">87</th>
+                <td>Al-A'laa</td>
+              </tr>
+              <tr>
+                <th scope="row">88</th>
+                <td>Al-Ghaasyiyah</td>
+              </tr>
+              <tr>
+                <th scope="row">89</th>
+                <td>Al-Fajr</td>
+              </tr>
+              <tr>
+                <th scope="row">90</th>
+                <td>Al-Balad</td>
+              </tr>
+              <tr>
+                <th scope="row">91</th>
+                <td>Asy-Syams</td>
+              </tr>
+              <tr>
+                <th scope="row">92</th>
+                <td>Al-Lail</td>
+              </tr>
+              <tr>
+                <th scope="row">93</th>
+                <td>Ad-Dhuhaa</td>
+              </tr>
+              <tr>
+                <th scope="row">94</th>
+                <td>Alam-Nasyrah</td>
+              </tr>
+              <tr>
+                <th scope="row">95</th>
+                <td>At-Tiin</td>
+              </tr>
+              <tr>
+                <th scope="row">96</th>
+                <td>Al-'Alaq</td>
+              </tr>
+              <tr>
+                <th scope="row">97</th>
+                <td>Al-Qadarh</td>
+              </tr>
+              <tr>
+                <th scope="row">98</th>
+                <td>Al-Bayyinah</td>
+              </tr>
+              <tr>
+                <th scope="row">99</th>
+                <td>Al-Zalzalah</td>
+              </tr>
+              <tr>
+                <th scope="row">100</th>
+                <td>Al-'Aadiyaat</td>
+              </tr>
+              <tr>
+                <th scope="row">101</th>
+                <td>Al-Qaari'ah</td>
+              </tr>
+              <tr>
+                <th scope="row">102</th>
+                <td>At-Takaatsur</td>
+              </tr>
+              <tr>
+                <th scope="row">103</th>
+                <td>Al-'Ashr</td>
+              </tr>
+              <tr>
+                <th scope="row">104</th>
+                <td>Al-Humazah</td>
+              </tr>
+              <tr>
+                <th scope="row">105</th>
+                <td>Al-Fiil</td>
+              </tr>
+              <tr>
+                <th scope="row">106</th>
+                <td>Al-Quraisy</td>
+              </tr>
+              <tr>
+                <th scope="row">107</th>
+                <td>Al-Maa'un</td>
+              </tr>
+              <tr>
+                <th scope="row">108</th>
+                <td>Al-Kautsar/td>
+              </tr>
+              <tr>
+                <th scope="row">109</th>
+                <td>Al-Kaafiruun</td>
+              </tr>
+              <tr>
+                <th scope="row">110</th>
+                <td>An-Nashr</td>
+              </tr>
+              <tr>
+                <th scope="row">111</th>
+                <td>Al-Lahab</td>
+              </tr>
+              <tr>
+                <th scope="row">112</th>
+                <td>Al-Ikhlash</td>
+              </tr>
+              <tr>
+                <th scope="row">113</th>
+                <td>Al-Falaq</td>
+              </tr>
+              <tr>
+                <th scope="row">114</th>
+                <td>An-Naas</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

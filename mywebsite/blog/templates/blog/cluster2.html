@@ -1,0 +1,31 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <br>
+    <h1>{{halaman}}</h1>
+    <br>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Surat</th>
+                <th scope="col">Ayat</th>
+                <th scope="col">Terjemah</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <th scope="row">{{row.no2}}</th>
+                <td>{{row.surat2}}</td>
+                <td>{{row.ayat2}}</td>
+                <td>{{row.terjemah2}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock content %}
